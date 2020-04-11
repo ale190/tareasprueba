@@ -1,0 +1,124 @@
+<html>
+<head>
+  <script type="text/javascript">
+    function desplegar(tabla_a_desplegar,estadoT){
+    var tablA = document.getElementById(tabla_a_desplegar);
+    var estadOt = document.getElementById(estadoT);
+    switch(tablA.style.display){
+      case "none":
+      tablA.style.display = "block";
+      estadOt.innerHTML = "Ocultar Contenido"<!--La actual linea de código no modifica el método.-->
+      break;
+      default:
+      tablA.style.display = "none"
+      estadOt.innerHTML = "Mostrar Contenido"<!--La actual linea de código no modifica el método.-->
+      break;
+      }
+      }
+  </script>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--{% extends "layout.html" %}-->
+{% load static from staticfiles %}
+{% block title %}MIS TAREAS{% endblock %}
+
+<!--{% block content %}-->
+<!--<body>
+<table table border="0" width="440">
+  <tr>
+    <td onClick="desplegar('tabla_a_desplegar3','estadoT3')">Haz clic aquí [+]</td>
+  </tr>
+  <tr>
+    <td>
+      <table border="1" id="tabla_a_desplegar3" style="display: none;">
+        {% for tarea in tareas %}
+        <tr>
+          <td><b style="color:#1A34DA">{{ tarea.tarea }}</b><br>Estado actual: {{ tarea.id_e }}</td>
+          <td></td>
+          <td><a href="/tareas/tiempo/newTime/{{ tarea.id_ta }}"><img src="{% static 'tareas/imagenes/iniciarTiempo.jpg' %}" title="Iniciar"></a></td><td><a href="/tareas/tiempo/layOffTime/{{ tarea.id_ta }}"><img src="{% static 'tareas/imagenes/suspenderTiempo.jpg' %}" title="Suspender"></a></td><td><a href="/tareas/tiempo/finalizeTime/{{ tarea.id_ta }}"><img src="{% static 'tareas/imagenes/finalizarTiempo.jpg' %}" title="Finalizar"></a></td>
+          <td></td>
+          <td><a href="/tareas/tarea/editTask/{{ tarea.id_ta }}"><img src="{% static 'tareas/imagenes/actualizar.jpg' %}" title="Actualizar" ></a></td><td><a href="/tareas/tarea/deleteTask/{{ tarea.id_ta }}" title="Eliminar"><img src="{% static 'tareas/imagenes/eliminar.jpg' %}" title="Eliminar"></a></td>
+          <td></td>
+          <td align="center"><a href="/tareas/subTarea/newSubTask/{{ tarea.id_ta }}" title="Agregar"><img src="{% static 'tareas/imagenes/agregar.jpg' %}"></a></td><td><a href="{% url 'tareas:subTasks' idTarea3=tarea.id_ta %}" title="Ver Listado"><img src="{% static 'tareas/imagenes/lista.jpg' %}"></a></td>
+          <td></td>
+          <td><a href="/tareas/solicitud/newRequest/{{ tarea.id_ta }}" title="Agregar"><img src="{% static 'tareas/imagenes/agregar.jpg' %}"></a></td><td><a href="{% url 'tareas:requestsTarea' idTarea=tarea.id_ta %}" title="Ver Listado"><img src="{% static 'tareas/imagenes/lista.jpg' %}"></a></td>
+          <td></td>
+          <td align="center"><a href="/tareas/tiempo/myTimes/{{ tarea.id_ta }}"><img src="{% static 'tareas/imagenes/lista.jpg' %}"></a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </td>
+  </tr>
+</table>-->
+
+
+  <table>
+    <tr>
+      <th><img src="{% static 'tareas/imagenes/logoBSC.jpg' %}" width="50" height="50"></th><th><h3>Bienvenido {{ username }}!!</h3></th>
+    </tr>
+  </table>
+  <!--<p align="right"><b>{{ diaActual }}/{{ mesActual }}/{{ añoActual }}</b></p>Sólo se utiliza doble llave cuando no requiere el uso de palabras reservadas de Python
+  <br></br>-->
+  <table border="2" bordercolor="#1A34DA" align="center">
+  <caption><h3></h3></caption><!--Título de la tabla-->
+  <tr>
+    <th colspan="15">LISTADO DE TAREAS</th><th><a href="{% url 'tareas:newTask' idUsuario=idUsuario %}"><img src="{% static 'tareas/imagenes/agregar.jpg' %}" title="Agregar Tarea"></a></th>
+  </tr>
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th colspan="3">Registrar Tiempo</th>
+    <th></th>
+    <th colspan="2">ABM</th>
+    <th></th>
+    <th colspan="2">Sub-Tarea</th>
+    <th></th>
+    <th colspan="2">Solicitud</th>
+    <th></th>
+    <th>Tiempo acumulado</th>
+  </tr>
+  {% block static %}
+  {% for tarea in tareas %}
+  <tr>
+    <td><b style="color:#1A34DA">{{ tarea.tarea }}</b><br>Estado actual: {{ tarea.id_e }}</td>
+    <td></td>
+    <td><a href="/tareas/tiempo/newTime/{{ tarea.id_ta }}"><img src="{% static 'tareas/imagenes/iniciarTiempo.jpg' %}" title="Iniciar"></a></td><td><a href="/tareas/tiempo/layOffTime/{{ tarea.id_ta }}"><img src="{% static 'tareas/imagenes/suspenderTiempo.jpg' %}" title="Suspender"></a></td><td><a href="/tareas/tiempo/finalizeTime/{{ tarea.id_ta }}"><img src="{% static 'tareas/imagenes/finalizarTiempo.jpg' %}" title="Finalizar"></a></td>
+    <td></td>
+    <td><a href="/tareas/tarea/editTask/{{ tarea.id_ta }}"><img src="{% static 'tareas/imagenes/actualizar.jpg' %}" title="Actualizar" ></a></td><td><a href="/tareas/tarea/deleteTask/{{ tarea.id_ta }}" title="Eliminar"><img src="{% static 'tareas/imagenes/eliminar.jpg' %}" title="Eliminar"></a></td>
+    <td></td>
+    <td align="center"><a href="/tareas/subTarea/newSubTask/{{ tarea.id_ta }}" title="Agregar"><img src="{% static 'tareas/imagenes/agregar.jpg' %}"></a></td><td><a href="{% url 'tareas:subTasks' idTarea3=tarea.id_ta %}" title="Ver Listado"><img src="{% static 'tareas/imagenes/lista.jpg' %}"></a></td>
+    <td></td>
+    <td><a href="/tareas/solicitud/newRequest/{{ tarea.id_ta }}" title="Agregar"><img src="{% static 'tareas/imagenes/agregar.jpg' %}"></a></td><td><a href="{% url 'tareas:requestsTarea' idTarea=tarea.id_ta %}" title="Ver Listado"><img src="{% static 'tareas/imagenes/lista.jpg' %}"></a></td>
+    <td></td>
+    <td align="center"><a href="/tareas/tiempo/myTimes/{{ tarea.id_ta }}"><img src="{% static 'tareas/imagenes/lista.jpg' %}"></a></td>
+  <!--<td><p style="color:#FFD700">{{ tarea.tarea }}</p></td><td><a href="/tareas/editTask/{{ tarea.id_ta }}">Editar</a></td><td><a href="/tareas/deleteTask/{{ tarea.id_ta }}" onclick="pulsar()">Borrar</a>-->
+  </tr>
+  {% endfor %}
+  </table>
+  {% endblock %}
+  <!--<SCRIPT languaje="JavaScript">
+    function pulsar(){
+      return confirm('¿Seguro desea eliminar la tarea?');
+    }
+  </SCRIPT>
+  <form>
+  <input type="button" name="button1" value="Pulsar" onclick="pulsar()">
+  </form>-->
+<!--{% endblock %}-->
+
+</body>
+</html>

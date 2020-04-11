@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block static %}
+<img src="{% static 'tareas/imagenes/elpadrino.gif' %}" >
+{% endblock %}
+{% block title %}Solicitudes{% endblock %}
+
+{% block content %}
+<br><br>
+<table border="2" bgcolor="33FF61" align="center">
+  <form action="" method="POST">{% csrf_token %}<!-- CSRF Cross Site Request Forgery protection (Protección de falsificación de solicitud de sitio cruzado). Proporciona protección fácil de usar contra falsificaciones de solicitudes entre sitios.-->
+  <tr>
+    <th colspan="2">NUEVA SOLICITUD</th>
+  </tr>
+  <tr>
+    <td>Solicitud:</td><td>{{ form.solicitud }}</td>
+  </tr>
+  <tr>
+    <td>Sector:</td><td>{{ form.id_s }}</td>
+  </tr>
+  <tr>
+    <th colspan="2"><button type="submit" style="width:230px">Crear</button></th>
+  </tr>
+  </form>
+</table>
+{% endblock %}
+<!--<img src="/images/elpadrino.jpg" alt="El Padrino Image">-->
+<!--{{ form.as_p }} Las llaves hacen referencia a una variable. Mientras que ".as_p" indica que los campos del form se muestren en etiquetas.-->

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+{% block title %}MIS SOLICITUDES{% endblock %}
+
+{% block content %}
+  <h2 align="center"></h2>
+  <br><br>
+  <table border="2" bordercolor="#1A34DA" align="center">
+  <!--<caption><h3>Listado de Solicitudes</h3></caption>Título de la tabla-->
+  <tr>
+    <th colspan="6">SOLICITUDES PENDIENTES</th>
+  </tr>
+  <tr>
+    <th>Nombre</th>
+    <th>Fecha Inicio</th>
+    <th>Sector</th>
+    <th colspan="4">ABM</th>
+  </tr>
+  {% for request in requests %}
+  <tr>
+  <td>{{ request.solicitud }}</td>
+  <td>{{ request.tiempoi }}</td>
+  <td>{{ request.id_s }}</td>
+  <td><a href="{% url 'tareas:finalizarRequestTarea' idRequestTarea=request.id_sol %}"><img src="{% static 'tareas/imagenes/finalizarTiempo.jpg' %}" title="Finalizar"></a></td><td><a href="{% url 'tareas:editRequestTarea' idRequestTarea=request.id_sol %}"><img src="{% static 'tareas/imagenes/actualizar.jpg' %}" title="Actualizar"></a></td><td><a href="{% url 'tareas:deleteRequestTarea' idRequestTarea=request.id_sol %}"><img src="{% static 'tareas/imagenes/eliminar.jpg' %}" title="Eliminar"></a></td>
+  <!--<td><p style="color:#FFD700">{{ tarea.tarea }}</p></td><td><a href="/tareas/editTask/{{ tarea.id_ta }}">Editar</a></td><td><a href="/tareas/deleteTask/{{ tarea.id_ta }}" onclick="pulsar()">Borrar</a>-->
+  </tr>
+  {% endfor %}
+  </table>
+  <!--<SCRIPT languaje="JavaScript">
+    function pulsar(){
+      return confirm('¿Seguro desea eliminar la tarea?');
+    }
+  </SCRIPT>
+  <form>
+  <input type="button" name="button1" value="Pulsar" onclick="pulsar()">
+  </form>-->
+{% endblock %}

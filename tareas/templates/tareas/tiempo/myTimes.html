@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <style type="text/css">
+
+      * {
+          padding:0px;
+          margin:0px;
+      }
+
+      #header {
+        margin:auto;
+        width:500px;
+        font-family:Arial, Helvetica, sans-serif;
+      }
+
+      ul, ol {
+        list-style:none;
+      }
+
+      .nav li a {
+        background-color:#000;
+        color:#fff;
+        text-decoration:none;
+        padding:10px 15px;
+        display:block;
+      }
+
+      .nav li a:hover {
+          background-color:#434343;
+      }
+
+      .nav > li {
+        float:left;
+      }
+
+      .nav li ul {
+          display:none;
+          position:absolute;
+          min-width:140px;
+      }
+
+      .nav li:hover > ul {
+          display:block;
+      }
+
+      .nav li ul li {
+          position:relative;
+      }
+
+      .nav li ul li ul {
+          right:-140px;
+          top:0px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <br>
+    <div id="header">
+      <ul class="nav">
+        <li><a href="">Tiempo Acumulado: {{ hh }} hs. {{ mm }} min. {{ ss }} seg.</a>
+        <li><a href="">Lista</a>
+          <ul>
+            {% for time in times %}
+            {% if time.tiempoi == None %}
+            <li><a href="">{{ time.tiempof }}</a></li>
+            {% elif time.tiempof == None %}
+            <li><a href="">{{ time.tiempoi }}</a></li>
+            {% else %}
+            <li><a href="">{{ time.tiempoi }} {{ time.tiempof }}</a></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
+<!--
+{% block content %}
+  <br><br>
+  <table border="2" bordercolor="#1A34DA" align="center">
+    <tr>
+      <th colspan="3">Tiempo Acumulado</th>
+    </tr>
+    <tr>
+      <th>Hora/s</th><th>Minuto/s</th><th>Segundo/s</th>
+    </tr>
+    <tr>
+      <td align="center">{{ hh }}</td><td align="center">{{ mm }}</td><td align="center">{{ ss }}</td>
+    </tr>
+  </table>
+  <br><br>
+  <table border="2" bordercolor="#1A34DA" align="center">
+    <caption><h3>Listado de Tiempos Registrados</h3></caption>Título de la tabla
+  <tr>
+    <th colspan="2">Log de Tiempo</th>
+  </tr>
+  <tr>
+    <th>Tiempo Inicial</th><th>Tiempo Final</th>
+  </tr>
+  {% for time in times %}
+  <tr>
+    {% if time.tiempoi == None %}
+    <td></td><td>{{ time.tiempof }}</td>
+    {% elif time.tiempof == None %}
+    <td>{{ time.tiempoi }}</td><td></td>
+    {% else %}
+    <td>{{ time.tiempoi }}</td><td>{{ time.tiempof }}</td>
+    {% endif %}
+  <td><p style="color:#FFD700">{{ tarea.tarea }}</p></td><td><a href="/tareas/editTask/{{ tarea.id_ta }}">Editar</a></td><td><a href="/tareas/deleteTask/{{ tarea.id_ta }}" onclick="pulsar()">Borrar</a>
+  </tr>
+  {% endfor %}
+  </table>
+{% endblock %}-->
+
+
+  <!--<SCRIPT languaje="JavaScript">
+    function pulsar(){
+      return confirm('¿Seguro desea eliminar la tarea?');
+    }
+  </SCRIPT>
+  <form>
+  <input type="button" name="button1" value="Pulsar" onclick="pulsar()">
+  </form>-->

@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h3 align="center">Editar Prioridad</h3>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Editar</button>
+</form>
+<p>{{ confirmation }}</p>
+{% endblock %}

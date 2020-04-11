@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}Prioridades Disponibles{% endblock %}
+
+{% block content %}
+  <table border="1">
+  <caption><h3>Listado de Prioridades</h3></caption><!--Título de la tabla-->
+  <tr>
+    <th>Nombre</th><th colspan="3">Funciones</th>
+  </tr>
+  {% for priority in prioritys %}
+  <tr>
+  <td><p style="color:#FFD700">{{ priority.prioridad }}</p></td><td><a href="/tareas/prioridad/editPriority/{{ priority.id_prioridad }}">Editar</a></td><td><a href="/tareas/prioridad/deletePriority/{{ priority.id_prioridad }}">Borrar</a></td>
+  <!--<td><p style="color:#FFD700">{{ tarea.tarea }}</p></td><td><a href="/tareas/editTask/{{ tarea.id_ta }}">Editar</a></td><td><a href="/tareas/deleteTask/{{ tarea.id_ta }}" onclick="pulsar()">Borrar</a>-->
+  </tr>
+  {% endfor %}
+  </table>
+  <br>
+  <a href="{% url 'tareas:newPriority' %}">Crear Nueva Prioridad</a>
+{% endblock %}

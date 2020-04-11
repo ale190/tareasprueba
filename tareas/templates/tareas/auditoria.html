@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+{% block title %}AUDITORÍA{% endblock %}
+
+{% block content %}
+<!--<table>
+  <tr>
+    <th><img src="{% static 'tareas/imagenes/logoBSC.jpg' %}" width="50" height="50"></th><th><h3>Bienvenido {{ username }}!!</h3></th>
+  </tr>
+</table>
+<table border="2" align="center">
+  <tr>
+    <td><a href="{% url 'tareas:myTasks' idUsuario=idUsuario %}"><h3>Ver mi listado de tareas</h3></a></td>
+  </tr>
+  <tr>
+    <td><a href="{% url 'tareas:sectors' %}"><h3>Ver listado de sectores</h3></a></td>
+  </tr>
+  <tr>
+    <td><a href="{% url 'tareas:users' %}"><h3>Ver listado de usuarios</h3></a></td>
+  </tr>
+  <tr>
+    <td><a href="{% url 'tareas:taskStates' %}"><h3>Ver listado de estados de tareas</h3></a></td>
+  </tr>
+  <tr>
+    <td><a href="{% url 'tareas:requestStatus' %}"><h3>Ver listado de estados de solicitudes</h3></a></td>
+  </tr>
+  <tr>
+    <td><a href="{% url 'tareas:levels' %}"><h3>Ver listado de niveles</h3></a></td>
+  </tr>
+  <tr>
+    <td><a href="{% url 'tareas:prioritys' %}"><h3>Ver listado de prioridades</h3></a></td>
+  </tr> ESTAS ETIQUETAS SERÁN ASIGNADAS PARA OTRO TEMPLATE A DEFINIR.
+</table>-->
+<!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2477.0558630831815!2d-69.21647620055764!3d-51.622185836818964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbdb6f957060d4553%3A0x1d1a8b44dcf9a29!2sCasino%20Club%20S.A.!5e0!3m2!1ses!2sar!4v1567164240892!5m2!1ses!2sar" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>-->
+<!--{% if sector %}
+  {% for s in sector %}
+    {{ s.id_s }}
+  {% endfor %}
+{% endif %}-->
+{% endblock %}

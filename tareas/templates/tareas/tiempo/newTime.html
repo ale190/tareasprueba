@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block static %}
+<img src="{% static 'tareas/imagenes/elpadrino.gif' %}" >
+{% endblock %}
+{% block title %}Solicitudes{% endblock %}
+
+{% block content %}
+<h3>Crear Nuevo Tiempo</h3>
+<br>
+<!--<img src="/images/elpadrino.jpg" alt="El Padrino Image">-->
+<form action="" method="POST">
+  {% csrf_token %}<!-- CSRF Cross Site Request Forgery protection (Protección de falsificación de solicitud de sitio cruzado). Proporciona protección fácil de usar contra falsificaciones de solicitudes entre sitios.-->
+  {{ form.as_p }}<!-- Las llaves hacen referencia a una variable. Mientras que ".as_p" indica que los campos del form se muestren en etiquetas.-->
+  <button type="submit">Guardar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{%  extends "layout.html" %}
+{% block content %}
+  <br></br>
+  <table border="1" bgcolor="33FF61" align="center">
+  <form action="" method="POST">{% csrf_token %}
+    <tr>
+      <th colspan="2">NUEVO USUARIO</th>
+    </tr>
+    <tr>
+      <td>Usuario:</td><td>{{ form.usuario }}</td>
+    </tr>
+    <tr>
+      <td>Contraseña:</td><td>{{ form.contraseña }}</td>
+    </tr>
+    <tr>
+      <td>Sector:</td><td>{{ form.id_s }}</td>
+    </tr>
+    <tr>
+      <th colspan="2"><button type="submit" style="width:250px">Registrar</button></th>
+    </tr>
+  </form>
+  </table>
+  <br>
+  <table align="center">
+    <tr>
+      <th colspan="2">{{ message }}</th>
+    </tr>
+  <table>
+{% endblock %}

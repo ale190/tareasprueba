@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}Sectores Disponibles{% endblock %}
+
+{% block content %}
+  <table border="1">
+  <caption><h3>Listado de Sectores</h3></caption><!--Título de la tabla-->
+  <tr>
+    <th>Nombre</th><th colspan="3">Funciones</th>
+  </tr>
+  {% for sector in sectores %}
+  <tr>
+  <td><p style="color:#FFD700">{{ sector.sector }}</p></td><td><a href="/tareas/sector/editSector/{{ sector.id_s }}">Editar</a></td><td><a href="/tareas/sector/deleteSector/{{ sector.id_s }}">Borrar</a></td>
+  <!--<td><p style="color:#FFD700">{{ tarea.tarea }}</p></td><td><a href="/tareas/editTask/{{ tarea.id_ta }}">Editar</a></td><td><a href="/tareas/deleteTask/{{ tarea.id_ta }}" onclick="pulsar()">Borrar</a>-->
+  </tr>
+  {% endfor %}
+  </table>
+  <br>
+  <a href="{% url 'tareas:newSector' %}">Crear Nuevo Sector</a>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+{% block title %}INICIANDO PROYECTO "TAREAS" EN SITIO WEB{% endblock %}
+
+{% block content %}
+<br /><br />
+<table align="center">
+  <tr>
+  {% block static %}
+    <!--<td rowspan="" align=""><img src="{% static 'tareas/imagenes/banco.png' %}" align="middle" border="1"></td>-->
+  {% endblock %}
+    <!--<td><h3 align="">{{ mensaje }} Bienvenido al organizador de tareas!</h3></td>-->
+  </tr>
+  <tr>
+    <td align="center">   </td>
+  </tr>
+  <tr>
+    <td align="center">   </td>
+  </tr>
+  <tr>
+    <td align="center">   </td>
+  </tr>
+  <tr>
+    <td align="center"><a href="{% url 'tareas:login' %}"><font size=5>Ingresar al sitio</font></a></td>
+  </tr>
+</table>
+
+{% endblock %}

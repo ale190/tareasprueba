@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}INICIAR SESIÓN{% endblock %}
+
+{% block content %}
+    <br /><br />
+    <table border="1" bgcolor="33FF61" align="center">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <tr>
+          <th colspan="2">INICIAR SESIÓN</th>
+        </tr>
+        <tr>
+          <td>Usuario:</td><td>{{ form.usuario }}</td>
+        </tr>
+        <tr>
+          <td>Contraseña:</td><td>{{ form.contraseña }}</td>
+        </tr>
+        <tr>
+          <th colspan="2"><button type="submit" style="width:250px">Ingresar</button></th>
+        </tr>
+    </form>
+    </table>
+    <br>
+    <table align="center">
+      <tr>
+        <th colspan="2">{{ errorIngreso }}</th>
+      </tr>
+    </table>
+    <br>
+    <table align="center">
+      <tr>
+        <th colspan="2"><a href="{% url 'tareas:newUser' %}"><font size=4>Registrarse</font></a></th>
+      </tr>
+    </table>
+    <br><br>
+    <p></p>
+  <nav>
+  </nav>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block static %}
+<img src="{% static 'tareas/imagenes/elpadrino.gif' %}" >
+{% endblock %}
+{% block title %}Tareas{% endblock %}
+
+{% block content %}
+<br></br>
+<table border="2" bgcolor="33FF61" align="center">
+<form action="" method="POST">{% csrf_token %}<!-- CSRF Cross Site Request Forgery protection (Protección de falsificación de solicitud de sitio cruzado). Proporciona protección fácil de usar contra falsificaciones de solicitudes entre sitios.-->
+  <tr>
+    <th colspan="2" align="center">NUEVA TAREA</th>
+  </tr>
+  <tr>
+    <td>Nombre:</td><td>{{ formTarea.tarea }}</td><!-- Las llaves hacen referencia a una variable. Mientras que ".as_p" indica que los campos del form se muestren con etiquetas.-->
+  </tr>
+  <tr>
+    <td>Nivel:</td><td>{{ formTarea.id_n }}</td>
+  </tr>
+  <tr>
+    <td>Prioridad:</td><td>{{ formTarea.id_prioridad }}</td>
+  </tr>
+  <tr>
+    <th colspan="2"><button type="submit" style="width:250px">Crear</button></th>
+  </tr>
+<!--<img src="/images/elpadrino.jpg" alt="El Padrino Image">-->
+</form>
+</table>
+<br>
+<table align="center">
+  <tr>
+    <th colspan="2">{{ message }}</th>
+  </tr>
+</table>
+<!--  {% for tarea in tareas %}
+    <div>{{ tarea.id_e_id }}</div>
+  {% endfor %}-->
+{% endblock %}

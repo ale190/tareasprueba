@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+{% block title %}SubTareas Disponibles{% endblock %}
+
+{% block content %}
+  <br></br>
+  <table border="2" bordercolor="#1A34DA" align="center">
+  <caption><h3></h3></caption><!--Título de la tabla-->
+  <tr>
+    <th colspan="5">SUBTAREAS</th>
+  </tr>
+  <tr>
+    <th>Nombre</th><th colspan="3">ABM</th><th>Listado</th>
+  </tr>
+  {% for subTarea in subTareas %}
+  <tr>
+  <td>{{ subTarea.starea }}</td>
+  <td><a href="/tareas/subTarea/editSubTask/{{ subTarea.id_sub }}"><img src="{% static 'tareas/imagenes/actualizar.jpg' %}" title="Actualizar"></a></td><td><a href="/tareas/subTarea/deleteSubTask/{{ subTarea.id_sub }}"><img src="{% static 'tareas/imagenes/eliminar.jpg' %}" tilte="Eliminar"></a></td><td><a href="/tareas/subTarea2/newSubTask2/{{ subTarea.id_sub }}"><img src="{% static 'tareas/imagenes/agregar.jpg' %}" title="Agregar"></a></td>
+  <td align="center"><a href="{% url 'tareas:subTasks2' idSubTarea=subTarea.id_sub %}"><img src="{% static 'tareas/imagenes/lista.jpg' %}"></a></td>
+  <!--<td><p style="color:#FFD700">{{ tarea.tarea }}</p></td><td><a href="/tareas/editTask/{{ tarea.id_ta }}">Editar</a></td><td><a href="/tareas/deleteTask/{{ tarea.id_ta }}" onclick="pulsar()">Borrar</a>-->
+  </tr>
+  {% endfor %}
+  </table>
+  <br>
+{% endblock %}

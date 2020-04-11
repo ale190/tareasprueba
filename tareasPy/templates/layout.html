@@ -1,0 +1,15 @@
+{% load static from staticfiles %}
+{% load tareas_extras %}
+
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body bgcolor="#B3B8A2">
+    <div>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

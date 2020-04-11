@@ -1,0 +1,21 @@
+{%  extends "layout.html" %}
+{% block title %}SubTarea2{% endblock %}
+{% block content %}
+  <br></br>
+  <table border="2" bgcolor="33FF61" align="center">
+  <form action="" method="POST">{% csrf_token %}
+    <tr>
+      <th colspan="2">NUEVA SUB-TAREA</th>
+    </tr>
+    <tr>
+      <td>Nombre:</td><td>{{ form.starea2 }}</td>
+    </tr>
+    <tr>
+      <td>Nivel:</td><td>{{ form.id_prioridad }}</td>
+    </tr>
+    <tr>
+      <th colspan="2"><button type="submit">Crear</button></th>
+    </tr>
+  </form>
+  </table>
+{% endblock %}
